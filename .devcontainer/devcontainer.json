@@ -1,8 +1,74 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
     "customizations": {
         "vscode": {
+            "extensions": [
+                "mads-hartmann.bash-ide-vscode",
+                "yzhang.markdown-all-in-one",
+                "DavidAnson.vscode-markdownlint",
+                "streetsidesoftware.code-spell-checker",
+                "GitHub.vscode-pull-request-github",
+                "GitHub.vscode-github-actions",
+                "GitHub.vscode-codeql",
+                "Codeium.codeium"
+            ],
             "settings": {
+                "tasks": {
+                    "version": "2.0.0",
+                    "tasks": [
+                        {
+                            "label": "Test Dev Container Feature: Everything",
+                            "type": "shell",
+                            "command": "devcontainer",
+                            "args": [
+                                "features",
+                                "test"
+                            ],
+                            "group": {
+                                "kind": "test",
+                                "isDefault": true
+                            }
+                        },
+                        {
+                            "label": "Test Dev Container Feature: Global Scenarios",
+                            "type": "shell",
+                            "command": "devcontainer",
+                            "args": [
+                                "features",
+                                "test",
+                                "--global-scenarios-only",
+                                "/workspaces/devcontainers-features"
+                            ],
+                            "group": {
+                                "kind": "test",
+                                "isDefault": true
+                            }
+                        },
+                        {
+                            "label": "Test Dev Container Feature: starship",
+                            "type": "shell",
+                            "command": "devcontainer",
+                            "args": [
+                                "features",
+                                "test",
+                                "--features",
+                                "starship",
+                                "--remote-user",
+                                "root",
+                                "--skip-scenarios",
+                                "--base-image",
+                                "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+                                "/workspaces/devcontainers-features"
+                            ],
+                            "group": {
+                                "kind": "test",
+                                "isDefault": true
+                            }
+                        }
+                    ]
+                },
+                "dotfiles.repository": "deep-space-cartel/dotfiles",
+                "editor.fontFamily": "'Hack Nerd Font Mono'",
+                "files.insertFinalNewline": true,
                 "json.schemas": [
                     {
                         "fileMatch": [
@@ -10,16 +76,19 @@
                         ],
                         "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
                     }
-                ]
-            },
-            "extensions": [
-                "mads-hartmann.bash-ide-vscode"
-            ]
+                ],
+                "terminal.integrated.fontFamily": "'Hack Nerd Font Mono'"
+            }
         }
     },
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "./apt": {
+            "packages": "shellcheck shfmt mc python3-pip python3-venv"
+        },
+        "ghcr.io/deep-space-cartel/devcontainers-features/starship:latest": {}
+        // "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
 }

@@ -1,0 +1,39 @@
+{
+    "name": "Starship",
+    "id": "starship",
+    "version": "1.0.0",
+    "description": "The minimal, blazing-fast, and infinitely customizable prompt for any shell!",
+    "options": {
+        "platform": {
+            "type": "string",
+            "default": "",
+            "description": "The platform to install the binary for"
+        },
+        "bin-dir": {
+            "type": "string",
+            "default": "",
+            "description": "The directory to install the binary to"
+        },
+        "arch": {
+            "type": "string",
+            "default": "",
+            "description": "The architecture to install the binary for"
+        },
+        "base-url": {
+            "type": "string",
+            "default": "",
+            "description": "The base URL to download the binary from"
+        },
+        "version": {
+            "type": "string",
+            "default": "",
+            "description": "The version of the binary to install"
+        }
+    },
+    "dependsOn": {
+        "ghcr.io/devcontainers/features/common-utils": {}
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

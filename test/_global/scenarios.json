@@ -1,12 +1,9 @@
 {
-    "color_and_hello": {
+    "global": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
-            "color": {
-                "favorite": "purple"
-            },
-            "hello": {
-                "greeting": "Greetings"
+            "starship": {
+                "version": "latest"
             }
         }
     }

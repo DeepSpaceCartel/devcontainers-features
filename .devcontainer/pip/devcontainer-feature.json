@@ -1,0 +1,11 @@
+{
+    "name": "pip",
+    "id": "pip",
+    "version": "1.0.0",
+    "description": "Install packages using pip",
+    "options": {
+    },
+    "installsAfter": [
+        "ghcr.io/deep-space-cartel/devcontainers-features/apt"
+    ]
+}
