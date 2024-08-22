@@ -21,7 +21,7 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
 * <https://starship.rs/>
 
-```jsonc
+```json
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
@@ -32,6 +32,8 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 }
 ```
 
+Since `starship` is managed by configuration files in `$HOME` consider using the following repo to automate the process or fork it and adjust to your liking.
+
 ```json
 {
     "customizations": {
@@ -39,6 +41,19 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
             "settings": {
                 "dotfiles.repository": "deep-space-cartel/dotfiles"
             }
+        }
+    }
+}
+```
+
+If you are using `devcontainers-features/apt` as well then you might have to add `bash-completion` to list of the packages.
+
+```json
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/deep-space-cartel/devcontainers-features/starship:latest": {
+            "version": "latest"
         }
     }
 }
@@ -115,7 +130,7 @@ Upload packages
 
 ```bash
 devcontainer features publish --namespace deep-space-cartel/devcontainers-features src/
-``
+```
 
 Generate docs:
 
@@ -125,7 +140,6 @@ devcontainer features generate-docs --namespace deep-space-cartel/devcontainers-
 
 ## TODO
 
-* Go to [github.com/devcontainers/devcontainers.github.io](https://github.com/devcontainers/devcontainers.github.io)
-  * This is the GitHub repo backing the [containers.dev](https://containers.dev/) spec site
-* Open a PR to modify the [collection-index.yml](https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml) file
-* Integrate `starship completions $(basename $SHELL)`
+* [ ] [Update collection-index.yml #453](https://github.com/devcontainers/devcontainers.github.io/pull/453).
+* [ ] Integrate `starship completions $(basename $SHELL)`.
+* [ ] Extract `bash-completion` installation into `utils` package.

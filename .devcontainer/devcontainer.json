@@ -117,7 +117,7 @@
         }
     },
     "features": {
-        "ghcr.io/deep-space-cartel/devcontainers-features/starship:1.1.0": {},
+        "ghcr.io/deep-space-cartel/devcontainers-features/starship:1": {},
         "ghcr.io/deep-space-cartel/devcontainers-features/apt:1": {
             "packages": "shellcheck shfmt mc python3-pip python3-venv"
         },
