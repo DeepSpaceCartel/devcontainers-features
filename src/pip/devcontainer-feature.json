@@ -1,0 +1,34 @@
+{
+    "name": "Install package(s) via Pip Installs Packages",
+    "id": "pip",
+    "version": "1.0.0",
+    "description": "Install Python packages via JSON or requirements.txt",
+    "options": {
+        "location": {
+            "type": "string",
+            "proposals": [
+                "/opt/pip",
+                "/tmp/pip",
+                "/var/tmp/.venv"
+            ],
+            "default": "/var/tmp/.venv"
+        },
+        "packages": {
+            "type": "string",
+            "proposals": [
+                "pre-commit"
+            ],
+            "default": "",
+            "description": "Install additional packages via apt"
+        }
+    },
+    "dependsOn": {
+        "ghcr.io/deep-space-cartel/devcontainers-features/apt:1": {
+            "packages": "python3-pip python3-venv"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/deep-space-cartel/devcontainers-features/apt"
+    ]
+}
