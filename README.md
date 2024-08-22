@@ -105,6 +105,12 @@ Consider using along with:
 
 ## Development
 
+Run local checks:
+
+```bash
+pre-commit run --hook-stage manual
+```
+
 Upload packages
 
 ```bash

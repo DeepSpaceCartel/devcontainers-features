@@ -10,3 +10,18 @@ repos:
     -   id: check-added-large-files
     -   id: mixed-line-ending
         args: ['--fix=lf']
+-   repo: local
+    hooks:
+    -   id: devcontainer-docs
+        name: "Dev Container Features: Generate Docs"
+        entry: devcontainer features generate-docs --namespace deep-space-cartel/devcontainers-features --project-folder src/
+        language: system
+        always_run: true
+        pass_filenames: false
+    -   id: devcontainer-test
+        name: "Dev Container Features: Run Tests"
+        entry: devcontainer features test
+        language: system
+        always_run: true
+        pass_filenames: false
+        stages: [manual]

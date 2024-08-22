@@ -16,6 +16,20 @@
                     "version": "2.0.0",
                     "tasks": [
                         {
+                            "label": "pre-commit: manual",
+                            "type": "shell",
+                            "command": "pre-commit",
+                            "args": [
+                                "run",
+                                "--hook-stage",
+                                "manual"
+                            ],
+                            "group": {
+                                "kind": "test",
+                                "isDefault": false
+                            }
+                        },
+                        {
                             "label": "Test Dev Container Feature: Everything",
                             "type": "shell",
                             "command": "devcontainer",
@@ -110,6 +124,9 @@
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/workspaces/devcontainers-features/.venv/bin"
+    },
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
 }
