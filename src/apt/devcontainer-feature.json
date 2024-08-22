@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "Install apt packages via JSON or apt.txt",
     "options": {
-        "apt-packages": {
+        "packages": {
             "type": "string",
             "proposals": [
                 "shellcheck",
@@ -12,7 +12,7 @@
             ],
             "default": "",
             "description": "Install additional packages via apt"
-        },
+        }
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils"

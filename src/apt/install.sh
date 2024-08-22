@@ -18,6 +18,10 @@ echo "The effective dev container remoteUser's home directory is '$_REMOTE_USER_
 echo "The effective dev container containerUser is '$_CONTAINER_USER'"
 echo "The effective dev container containerUser's home directory is '$_CONTAINER_USER_HOME'"
 
-# shellcheck disable=SC2086
-sudo apt update && sudo apt install -y ${PACKAGES} && sudo apt autoremove -y && sudo apt clean
-# sudo rm -rf /tmp/* # It's on Read-Only filesystem
+if [ -z "$PACKAGES" ]; then
+  echo "No APT packages to install"
+else
+  # shellcheck disable=SC2086
+  sudo apt update && sudo apt install -y ${PACKAGES} && sudo apt autoremove -y && sudo apt clean
+  # sudo rm -rf /tmp/* # It's on Read-Only filesystem
+fi

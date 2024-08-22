@@ -1,38 +1,28 @@
-# Starship
+
+# Starship (starship)
 
 The minimal, blazing-fast, and infinitely customizable prompt for any shell!
-
-* <https://starship.rs/>
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/deep-space-cartel/devcontainer-features/starship:1": {
-        "version": "latest"
-    },
+    "ghcr.io/deep-space-cartel/devcontainers-features/starship:1": {}
 }
 ```
 
 ## Options
 
-| Options Id | Description                                                                   | Type   | Default Value                 |
-| ---------- | ----------------------------------------------------------------------------- | ------ | ----------------------------- |
-| platform   | One of `win` (Git Bash), `darwin`, `linux`, `linux_musl` (Alpine), `freebsd`, | string | *identified by the installer* |
-| bin-dir    | The directory to install the binary to                                        | string | `/usr/local/bin`              |
-| arch       | One of `x86_64`, `i386`, `arm`, `arm64`                                       | string | *identified by the installer* |
-| base-url   | The base URL to download the binary from                                      | string | […/releases][1]             |
-| version    | The version of the binary to install                                          | string | `latest`                      |
+| Options Id | Description | Type | Default Value |
+|-----|-----|-----|-----|
+| platform | The platform to install the binary for | string | - |
+| bin-dir | The directory to install the binary to | string | - |
+| arch | The architecture to install the binary for | string | - |
+| base-url | The base URL to download the binary from | string | - |
+| version | The version of the binary to install | string | - |
 
-## Testing
 
-```bash
-devcontainer features test \
-    --features starship   \
-    --remote-user root \
-    --skip-scenarios   \
-    --base-image mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm \
-    /workspaces/devcontainers-features
-```
 
-[1]: https://github.com/starship/starship/releases
+---
+
+_Note: This file was auto-generated from the [devcontainer-feature.json](devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

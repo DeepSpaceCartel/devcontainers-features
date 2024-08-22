@@ -1,6 +1,21 @@
 # Dev Container Features
 
-## `starship`
+## Features
+
+### `apt`
+
+```json
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/deep-space-cartel/devcontainers-features/apt:latest": {
+            "packages": "shellcheck shfmt"
+        }
+    }
+}
+```
+
+### `starship`
 
 The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
@@ -12,6 +27,18 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
     "features": {
         "ghcr.io/deep-space-cartel/devcontainers-features/starship:latest": {
             "version": "latest"
+        }
+    }
+}
+```
+
+```json
+{
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "dotfiles.repository": "deep-space-cartel/dotfiles"
+            }
         }
     }
 }
@@ -76,8 +103,23 @@ Consider using along with:
 
 * <https://github.com/deep-space-cartel/dotfiles>
 
+## Development
+
+Upload packages
+
+```bash
+devcontainer features publish --namespace deep-space-cartel/devcontainers-features src/
+``
+
+Generate docs:
+
+```bash
+devcontainer features generate-docs --namespace deep-space-cartel/devcontainers-features --project-folder src/
+```
+
 ## TODO
 
 * Go to [github.com/devcontainers/devcontainers.github.io](https://github.com/devcontainers/devcontainers.github.io)
-     * This is the GitHub repo backing the [containers.dev](https://containers.dev/) spec site
+  * This is the GitHub repo backing the [containers.dev](https://containers.dev/) spec site
 * Open a PR to modify the [collection-index.yml](https://github.com/devcontainers/devcontainers.github.io/blob/gh-pages/_data/collection-index.yml) file
+* Integrate `starship completions $(basename $SHELL)`

@@ -1,0 +1,26 @@
+{
+    "shellcheck": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "apt": {
+                "packages": "shellcheck"
+            }
+        }
+    },
+    "shfmt": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "apt": {
+                "packages": "shfmt"
+            }
+        }
+    },
+    "shellcheck_and_shfmt": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "apt": {
+                "packages": "shellcheck shfmt"
+            }
+        }
+    }
+}

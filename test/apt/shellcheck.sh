@@ -11,7 +11,7 @@ source dev-container-features-test-lib
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
-check "Check that apt is present in $PATH" bash -c "command -v apt"
+check "Chech that shellcheck installed" bash -c "shellcheck --version | grep 'ShellCheck - shell script analysis tool'"
 
 # Report results
 # If any of the checks above exited with a non-zero exit code, the test will fail.
