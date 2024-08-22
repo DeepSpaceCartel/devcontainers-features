@@ -85,8 +85,8 @@
         "./apt": {
             "packages": "shellcheck shfmt mc python3-pip python3-venv"
         },
-        "ghcr.io/deep-space-cartel/devcontainers-features/starship:latest": {}
-        // "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/deep-space-cartel/devcontainers-features/starship:1.1.0": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
     "remoteUser": "node",
