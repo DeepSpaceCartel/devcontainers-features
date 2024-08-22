@@ -1,5 +1,7 @@
 # Dev Container Features
 
+[![CI - Test Features](https://github.com/deep-space-cartel/devcontainers-features/actions/workflows/test.yaml/badge.svg)](https://github.com/deep-space-cartel/devcontainers-features/actions/workflows/test.yaml)
+
 ## Features
 
 ### `apt`
@@ -35,6 +37,9 @@ Install `pre-commit` via PIP Installs Packages:
 ```
 
 Configure `pre-commit`:
+
+> `pre-commit` relies on Git and there is permission problem
+> which is fixed by `dotfiles.repository`, see example in `starship` section below.
 
 ```bash
 pre-commit sample-config > .pre-commit-config.yaml
