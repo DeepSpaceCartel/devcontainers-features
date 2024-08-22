@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
-
-echo "Installing packages: ${PACKAGES}"
+set -x
 
 # The 'install.sh' entrypoint script is always executed as the root user.
 #
@@ -15,13 +14,11 @@ echo "The effective dev container remoteUser's home directory is '$_REMOTE_USER_
 echo "The effective dev container containerUser is '$_CONTAINER_USER'"
 echo "The effective dev container containerUser's home directory is '$_CONTAINER_USER_HOME'"
 
-if [ -z "$PACKAGES" ]; then
-  echo "No APT packages to install"
+if [ -z "${PACKAGES}" ]; then
+  mkdir -pv "${LOCATION}"
+  echo "No PIP packages to install" | tee -a "${LOCATION}/install.log"
 else
-  if [ "${_CONTAINER_USER}" = "root" ]; then
-    apt update && apt install -y ${PACKAGES} && apt autoremove -y && apt clean
-  else
-    sudo apt update && sudo apt install -y ${PACKAGES} && sudo apt autoremove -y && sudo apt clean
-  fi
-  # sudo rm -rf /tmp/* # It's on Read-Only filesystem
+  python3 -m venv "${LOCATION}"
+  source "${LOCATION}/bin/activate"
+  pip install ${PACKAGES}
 fi

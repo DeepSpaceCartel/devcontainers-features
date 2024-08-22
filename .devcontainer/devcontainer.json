@@ -12,9 +12,47 @@
                 "Codeium.codeium"
             ],
             "settings": {
+                "remote.extensionKind": {
+                    "GitHub.vscode-codeql": [
+                        "ui"
+                    ]
+                },
                 "tasks": {
                     "version": "2.0.0",
                     "tasks": [
+                        {
+                            "label": "Dev Container Feature: Publish Packages",
+                            "type": "shell",
+                            "command": "devcontainer",
+                            "args": [
+                                "features",
+                                "publish",
+                                "--namespace",
+                                "deep-space-cartel/devcontainers-features",
+                                "src/"
+                            ],
+                            "group": {
+                                "kind": "build",
+                                "isDefault": false
+                            }
+                        },
+                        {
+                            "label": "Dev Container Feature: Generate Docs",
+                            "type": "shell",
+                            "command": "devcontainer",
+                            "args": [
+                                "features",
+                                "generate-docs",
+                                "--namespace",
+                                "deep-space-cartel/devcontainers-features",
+                                "--project-folder",
+                                "src/"
+                            ],
+                            "group": {
+                                "kind": "build",
+                                "isDefault": false
+                            }
+                        },
                         {
                             "label": "pre-commit: manual",
                             "type": "shell",
@@ -30,7 +68,7 @@
                             }
                         },
                         {
-                            "label": "Test Dev Container Feature: Everything",
+                            "label": "Dev Container Feature: Test Everything",
                             "type": "shell",
                             "command": "devcontainer",
                             "args": [
@@ -43,7 +81,7 @@
                             }
                         },
                         {
-                            "label": "Test Dev Container Feature: Global Scenarios",
+                            "label": "Dev Container Feature: Test Global Scenarios",
                             "type": "shell",
                             "command": "devcontainer",
                             "args": [
@@ -58,7 +96,7 @@
                             }
                         },
                         {
-                            "label": "Test Dev Container Feature: starship",
+                            "label": "Dev Container Feature: Test starship",
                             "type": "shell",
                             "command": "devcontainer",
                             "args": [
@@ -68,7 +106,6 @@
                                 "starship",
                                 "--remote-user",
                                 "root",
-                                "--skip-scenarios",
                                 "--base-image",
                                 "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
                                 "/workspaces/devcontainers-features"
@@ -79,7 +116,7 @@
                             }
                         },
                         {
-                            "label": "Test Dev Container Feature: apt",
+                            "label": "Dev Container Feature: Test apt",
                             "type": "shell",
                             "command": "devcontainer",
                             "args": [
@@ -89,7 +126,26 @@
                                 "apt",
                                 "--remote-user",
                                 "root",
-                                "--skip-scenarios",
+                                "--base-image",
+                                "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+                                "/workspaces/devcontainers-features"
+                            ],
+                            "group": {
+                                "kind": "test",
+                                "isDefault": false
+                            }
+                        },
+                        {
+                            "label": "Dev Container Feature: Test pip",
+                            "type": "shell",
+                            "command": "devcontainer",
+                            "args": [
+                                "features",
+                                "test",
+                                "--features",
+                                "pip",
+                                "--remote-user",
+                                "root",
                                 "--base-image",
                                 "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
                                 "/workspaces/devcontainers-features"
@@ -118,6 +174,10 @@
     },
     "features": {
         "ghcr.io/deep-space-cartel/devcontainers-features/starship:1": {},
+        "ghcr.io/deep-space-cartel/devcontainers-features/pip:1": {
+            "packages": "pre-commit",
+            "location": "/opt/pip"
+        },
         "ghcr.io/deep-space-cartel/devcontainers-features/apt:1": {
             "packages": "shellcheck shfmt mc python3-pip python3-venv"
         },
@@ -125,7 +185,10 @@
     },
     "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
     "remoteEnv": {
-        "PATH": "${containerEnv:PATH}:/workspaces/devcontainers-features/.venv/bin"
+        "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}",
+        "DOCKER_BUILDKIT": "1",
+        "BUILDKIT_DEBUG": "1",
+        "PATH": "${containerEnv:PATH}:/opt/pip/bin"
     },
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"

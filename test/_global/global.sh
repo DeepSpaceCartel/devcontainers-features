@@ -23,6 +23,7 @@ echo -e "\n"
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib.
 check "latest version of starship is from master" bash -c "starship --version | grep 'branch:master'"
+check "pre-commit installed" bash -c "command -v pre-commit"
 
 
 # Report result

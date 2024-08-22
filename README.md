@@ -15,6 +15,33 @@
 }
 ```
 
+### `pip`
+
+Install `pre-commit` via PIP Installs Packages:
+
+```json
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:/opt/pip/bin"
+    },
+    "features": {
+        "ghcr.io/deep-space-cartel/devcontainers-features/pip:1": {
+            "packages": "pre-commit",
+            "location": "/opt/pip/bin",
+        }
+    }
+}
+```
+
+Configure `pre-commit`:
+
+```bash
+pre-commit sample-config > .pre-commit-config.yaml
+pre-commit install
+pre-commit run --all-files
+```
+
 ### `starship`
 
 The minimal, blazing-fast, and infinitely customizable prompt for any shell!

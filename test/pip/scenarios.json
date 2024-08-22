@@ -1,16 +1,10 @@
 {
-    "global": {
+    "pre-commit": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "remoteEnv": {
             "PATH": "${containerEnv:PATH}:/opt/pip/bin"
         },
         "features": {
-            "starship": {
-                "version": "latest"
-            },
-            "apt": {
-                "packages": "python3-pip python3-venv"
-            },
             "pip": {
                 "packages": "pre-commit",
                 "location": "/opt/pip"
