@@ -1,0 +1,20 @@
+{
+    "name": "Install package(s) via Advanced Package Tool",
+    "id": "apt",
+    "version": "1.0.0",
+    "description": "Install apt packages via JSON or apt.txt",
+    "options": {
+        "apt-packages": {
+            "type": "string",
+            "proposals": [
+                "shellcheck",
+                "shfmt"
+            ],
+            "default": "",
+            "description": "Install additional packages via apt"
+        },
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

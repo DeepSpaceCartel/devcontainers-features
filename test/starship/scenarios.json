@@ -1,0 +1,19 @@
+{
+    "pinning": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "starship": {
+                "version": "v1.20.1"
+            }
+        }
+    },
+    "latest": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "starship": {
+                "version": "latest"
+            }
+        }
+    }
+
+}
