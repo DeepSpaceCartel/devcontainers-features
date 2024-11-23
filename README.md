@@ -30,7 +30,7 @@ Install `pre-commit` via PIP Installs Packages:
     "features": {
         "ghcr.io/deep-space-cartel/devcontainers-features/pip:1": {
             "packages": "pre-commit",
-            "location": "/opt/pip/bin",
+            "location": "/opt/pip",
         }
     }
 }
