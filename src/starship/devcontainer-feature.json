@@ -1,7 +1,7 @@
 {
     "name": "Starship",
     "id": "starship",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "description": "The minimal, blazing-fast, and infinitely customizable prompt for any shell!",
     "options": {
         "platform": {
@@ -32,7 +32,7 @@
     },
     "dependsOn": {
         "ghcr.io/devcontainers/features/common-utils": {},
-        "ghcr.io/deep-space-cartel/devcontainers-features/apt:1": {
+        "ghcr.io/deepspacecartel/devcontainers-features/apt:1": {
             "packages": "bash-completion"
         }
     }

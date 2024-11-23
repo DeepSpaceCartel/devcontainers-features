@@ -28,7 +28,7 @@
                                 "features",
                                 "publish",
                                 "--namespace",
-                                "deep-space-cartel/devcontainers-features",
+                                "deepspacecartel/devcontainers-features",
                                 "src/"
                             ],
                             "group": {
@@ -44,7 +44,7 @@
                                 "features",
                                 "generate-docs",
                                 "--namespace",
-                                "deep-space-cartel/devcontainers-features",
+                                "deepspacecartel/devcontainers-features",
                                 "--project-folder",
                                 "src/"
                             ],
@@ -157,7 +157,7 @@
                         }
                     ]
                 },
-                "dotfiles.repository": "deep-space-cartel/dotfiles",
+                "dotfiles.repository": "deepspacecartel/dotfiles",
                 "editor.fontFamily": "'Hack Nerd Font Mono'",
                 "files.insertFinalNewline": true,
                 "json.schemas": [
@@ -173,15 +173,15 @@
         }
     },
     "features": {
-        "ghcr.io/deep-space-cartel/devcontainers-features/starship:1": {},
-        "ghcr.io/deep-space-cartel/devcontainers-features/pip:1": {
-            "packages": "pre-commit",
-            "location": "/opt/pip"
-        },
-        "ghcr.io/deep-space-cartel/devcontainers-features/apt:1": {
-            "packages": "shellcheck shfmt mc python3-pip python3-venv"
-        },
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        // "ghcr.io/deepspacecartel/devcontainers-features/starship:1": {},
+        // "ghcr.io/deepspacecartel/devcontainers-features/pip:1": {
+        //     "packages": "pre-commit",
+        //     "location": "/opt/pip"
+        // },
+        // "ghcr.io/deepspacecartel/devcontainers-features/apt:1": {
+        //     "packages": "shellcheck shfmt mc python3-pip python3-venv"
+        // },
+        // "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
     "remoteEnv": {
