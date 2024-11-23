@@ -7,7 +7,7 @@ Install apt packages via JSON or apt.txt
 
 ```json
 "features": {
-    "ghcr.io/deep-space-cartel/devcontainers-features/apt:1": {}
+    "ghcr.io/deepspacecartel/devcontainers-features/apt:1": {}
 }
 ```
 

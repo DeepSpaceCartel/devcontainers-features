@@ -1,6 +1,6 @@
 # Dev Container Features
 
-[![CI - Test Features](https://github.com/deep-space-cartel/devcontainers-features/actions/workflows/test.yaml/badge.svg)](https://github.com/deep-space-cartel/devcontainers-features/actions/workflows/test.yaml)
+[![CI - Test Features](https://github.com/deepspacecartel/devcontainers-features/actions/workflows/test.yaml/badge.svg)](https://github.com/deepspacecartel/devcontainers-features/actions/workflows/test.yaml)
 
 ## Features
 
@@ -10,7 +10,7 @@
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/deep-space-cartel/devcontainers-features/apt:latest": {
+        "ghcr.io/deepspacecartel/devcontainers-features/apt:2": {
             "packages": "shellcheck shfmt"
         }
     }
@@ -28,9 +28,9 @@ Install `pre-commit` via PIP Installs Packages:
         "PATH": "${containerEnv:PATH}:/opt/pip/bin"
     },
     "features": {
-        "ghcr.io/deep-space-cartel/devcontainers-features/pip:1": {
+        "ghcr.io/deepspacecartel/devcontainers-features/pip:2": {
             "packages": "pre-commit",
-            "location": "/opt/pip/bin",
+            "location": "/opt/pip",
         }
     }
 }
@@ -57,7 +57,7 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/deep-space-cartel/devcontainers-features/starship:latest": {
+        "ghcr.io/deepspacecartel/devcontainers-features/starship:2": {
             "version": "latest"
         }
     }
@@ -71,7 +71,7 @@ Since `starship` is managed by configuration files in `$HOME` consider using the
     "customizations": {
         "vscode": {
             "settings": {
-                "dotfiles.repository": "deep-space-cartel/dotfiles"
+                "dotfiles.repository": "deepspacecartel/dotfiles"
             }
         }
     }
@@ -84,7 +84,7 @@ If you are using `devcontainers-features/apt` as well then you might have to add
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/deep-space-cartel/devcontainers-features/starship:latest": {
+        "ghcr.io/deepspacecartel/devcontainers-features/starship:2": {
             "version": "latest"
         }
     }
@@ -148,7 +148,7 @@ devcontainers-features on  main +/- [😵]
 
 Consider using along with:
 
-* <https://github.com/deep-space-cartel/dotfiles>
+* <https://github.com/deepspacecartel/dotfiles>
 
 ## Development
 
@@ -161,13 +161,13 @@ pre-commit run --hook-stage manual
 Upload packages
 
 ```bash
-devcontainer features publish --namespace deep-space-cartel/devcontainers-features src/
+devcontainer features publish --namespace deepspacecartel/devcontainers-features src/
 ```
 
 Generate docs:
 
 ```bash
-devcontainer features generate-docs --namespace deep-space-cartel/devcontainers-features --project-folder src/
+devcontainer features generate-docs --namespace deepspacecartel/devcontainers-features --project-folder src/
 ```
 
 ## TODO

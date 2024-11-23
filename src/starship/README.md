@@ -7,7 +7,7 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
 ```json
 "features": {
-    "ghcr.io/deep-space-cartel/devcontainers-features/starship:1": {}
+    "ghcr.io/deepspacecartel/devcontainers-features/starship:1": {}
 }
 ```
 

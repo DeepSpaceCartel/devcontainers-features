@@ -1,7 +1,7 @@
 {
     "name": "Install package(s) via Advanced Package Tool",
     "id": "apt",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "description": "Install apt packages via JSON or apt.txt",
     "options": {
         "packages": {
