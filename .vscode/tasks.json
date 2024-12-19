@@ -1,0 +1,140 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Dev Container Feature: Publish Packages",
+            "type": "shell",
+            "command": "devcontainer",
+            "args": [
+                "features",
+                "publish",
+                "--namespace",
+                "partcad/devcontainers-features",
+                "src/"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Dev Container Feature: Generate Docs",
+            "type": "shell",
+            "command": "devcontainer",
+            "args": [
+                "features",
+                "generate-docs",
+                "--namespace",
+                "partcad/devcontainers-features",
+                "--project-folder",
+                "src/"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "pre-commit: manual",
+            "type": "shell",
+            "command": "pre-commit",
+            "args": [
+                "run",
+                "--hook-stage",
+                "manual"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Dev Container Feature: Test Everything",
+            "type": "shell",
+            "command": "devcontainer",
+            "args": [
+                "features",
+                "test"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Dev Container Feature: Test Global Scenarios",
+            "type": "shell",
+            "command": "devcontainer",
+            "args": [
+                "features",
+                "test",
+                "--global-scenarios-only",
+                "/workspaces/devcontainers-features"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Dev Container Feature: Test starship",
+            "type": "shell",
+            "command": "devcontainer",
+            "args": [
+                "features",
+                "test",
+                "--features",
+                "starship",
+                "--remote-user",
+                "root",
+                "--base-image",
+                "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+                "/workspaces/devcontainers-features"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Dev Container Feature: Test apt",
+            "type": "shell",
+            "command": "devcontainer",
+            "args": [
+                "features",
+                "test",
+                "--features",
+                "apt",
+                "--remote-user",
+                "root",
+                "--base-image",
+                "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+                "/workspaces/devcontainers-features"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Dev Container Feature: Test pip",
+            "type": "shell",
+            "command": "devcontainer",
+            "args": [
+                "features",
+                "test",
+                "--features",
+                "pip",
+                "--remote-user",
+                "root",
+                "--base-image",
+                "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+                "/workspaces/devcontainers-features"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            }
+        }
+    ]
+}

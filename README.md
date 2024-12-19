@@ -212,3 +212,4 @@ In Organisation [Settings / Packages](https://github.com/organizations/partcad/s
 * [ ] Manage Packages permissions with Terraform.
 * [ ] `LABEL org.ope,ncontainers.image.source https://github.com/OWNER/REPO`
   * [ ] Maybe `customizations` could be used for that but docs are not clear.
+* [ ] Drop `pip` feature and replace it with `devcontainers/python` instead.
