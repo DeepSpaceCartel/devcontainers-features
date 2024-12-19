@@ -32,7 +32,7 @@
     },
     "dependsOn": {
         "ghcr.io/devcontainers/features/common-utils": {},
-        "ghcr.io/deepspacecartel/devcontainers-features/apt:1": {
+        "ghcr.io/partcad/devcontainers-features/apt:1": {
             "packages": "bash-completion"
         }
     }

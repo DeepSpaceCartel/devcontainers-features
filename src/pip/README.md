@@ -7,7 +7,7 @@ Install Python packages via JSON or requirements.txt
 
 ```json
 "features": {
-    "ghcr.io/deepspacecartel/devcontainers-features/pip:2": {}
+    "ghcr.io/partcad/devcontainers-features/pip:2": {}
 }
 ```
 
@@ -22,4 +22,4 @@ Install Python packages via JSON or requirements.txt
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/partcad/devcontainers-features/blob/main/src/pip/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
