@@ -158,6 +158,12 @@ Run local checks:
 pre-commit run --hook-stage manual
 ```
 
+Generate `.devcontainer/devcontainer-lock.json`
+
+```bash
+devcontainer upgrade --workspace-folder ./
+```
+
 Generate docs:
 
 ```bash
@@ -176,6 +182,8 @@ devcontainer features publish --namespace partcad/devcontainers-features src/
 ```
 
 ### Initial Release
+
+* [Configuring visibility of packages for an organization](https://docs.github.com/en/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#configuring-visibility-of-packages-for-an-organization)
 
 Navigate to:
 
