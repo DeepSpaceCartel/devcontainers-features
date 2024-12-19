@@ -23,12 +23,12 @@
         }
     },
     "dependsOn": {
-        "ghcr.io/deepspacecartel/devcontainers-features/apt:1": {
+        "ghcr.io/partcad/devcontainers-features/apt:1": {
             "packages": "python3-pip python3-venv"
         }
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils",
-        "ghcr.io/deepspacecartel/devcontainers-features/apt"
+        "ghcr.io/partcad/devcontainers-features/apt"
     ]
 }
