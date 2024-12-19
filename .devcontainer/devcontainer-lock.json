@@ -1,0 +1,33 @@
+{
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils": {
+      "version": "2.5.2",
+      "resolved": "ghcr.io/devcontainers/features/common-utils@sha256:5b1c376d30719a4dead8fb2f272ee496cfb506f2f92b7acf9e1c24cb5399ba7d",
+      "integrity": "sha256:5b1c376d30719a4dead8fb2f272ee496cfb506f2f92b7acf9e1c24cb5399ba7d"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "2.12.0",
+      "resolved": "ghcr.io/devcontainers/features/docker-in-docker@sha256:5f3e2005aad161ce3ff7700b2603f11935348c039f9166960efd050d69cd3014",
+      "integrity": "sha256:5f3e2005aad161ce3ff7700b2603f11935348c039f9166960efd050d69cd3014"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "1.7.0",
+      "resolved": "ghcr.io/devcontainers/features/python@sha256:8452f39db0852420728c9f7503dd94b3fc71aa558b5e7c8f6f9ce6687e494ae3",
+      "integrity": "sha256:8452f39db0852420728c9f7503dd94b3fc71aa558b5e7c8f6f9ce6687e494ae3"
+    },
+    "ghcr.io/partcad/devcontainers-features/apt:2": {
+      "version": "2.0.0",
+      "resolved": "ghcr.io/partcad/devcontainers-features/apt@sha256:285ee2907fe57bd2f69b021e3eb72d78ff8116b3a4f93bd8dea1249b88a18310",
+      "integrity": "sha256:285ee2907fe57bd2f69b021e3eb72d78ff8116b3a4f93bd8dea1249b88a18310"
+    },
+    "ghcr.io/partcad/devcontainers-features/starship:2": {
+      "version": "2.0.1",
+      "resolved": "ghcr.io/partcad/devcontainers-features/starship@sha256:8ae2df858097ac1c782a125d9dbd8a8027efd6181f7d97ef6a012ea90813d4c1",
+      "integrity": "sha256:8ae2df858097ac1c782a125d9dbd8a8027efd6181f7d97ef6a012ea90813d4c1",
+      "dependsOn": [
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/partcad/devcontainers-features/apt:2"
+      ]
+    }
+  }
+}
