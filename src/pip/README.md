@@ -7,7 +7,7 @@ Install Python packages via JSON or requirements.txt
 
 ```json
 "features": {
-    "ghcr.io/deepspacecartel/devcontainers-features/pip:2": {}
+    "ghcr.io/partcad/devcontainers-features/pip:2": {}
 }
 ```
 
