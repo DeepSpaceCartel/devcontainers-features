@@ -25,4 +25,4 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/partcad/devcontainers-features/blob/main/src/starship/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
