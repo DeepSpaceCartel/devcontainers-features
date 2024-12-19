@@ -1,6 +1,6 @@
 # Dev Container Features
 
-[![CI - Test Features](https://github.com/deepspacecartel/devcontainers-features/actions/workflows/test.yaml/badge.svg)](https://github.com/deepspacecartel/devcontainers-features/actions/workflows/test.yaml)
+[![CI - Test Features](https://github.com/partcad/devcontainers-features/actions/workflows/test.yaml/badge.svg)](https://github.com/partcad/devcontainers-features/actions/workflows/test.yaml)
 
 ## Features
 
@@ -10,7 +10,7 @@
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/deepspacecartel/devcontainers-features/apt:2": {
+        "ghcr.io/partcad/devcontainers-features/apt:2": {
             "packages": "shellcheck shfmt"
         }
     }
@@ -28,7 +28,7 @@ Install `pre-commit` via PIP Installs Packages:
         "PATH": "${containerEnv:PATH}:/opt/pip/bin"
     },
     "features": {
-        "ghcr.io/deepspacecartel/devcontainers-features/pip:2": {
+        "ghcr.io/partcad/devcontainers-features/pip:2": {
             "packages": "pre-commit",
             "location": "/opt/pip",
         }
@@ -57,7 +57,7 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/deepspacecartel/devcontainers-features/starship:2": {
+        "ghcr.io/partcad/devcontainers-features/starship:2": {
             "version": "latest"
         }
     }
@@ -71,7 +71,7 @@ Since `starship` is managed by configuration files in `$HOME` consider using the
     "customizations": {
         "vscode": {
             "settings": {
-                "dotfiles.repository": "deepspacecartel/dotfiles"
+                "dotfiles.repository": "partcad/dotfiles"
             }
         }
     }
@@ -84,7 +84,7 @@ If you are using `devcontainers-features/apt` as well then you might have to add
 {
     "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
     "features": {
-        "ghcr.io/deepspacecartel/devcontainers-features/starship:2": {
+        "ghcr.io/partcad/devcontainers-features/starship:2": {
             "version": "latest"
         }
     }
@@ -148,7 +148,7 @@ devcontainers-features on  main +/- [😵]
 
 Consider using along with:
 
-* <https://github.com/deepspacecartel/dotfiles>
+* <https://github.com/partcad/dotfiles>
 
 ## Development
 
@@ -158,20 +158,58 @@ Run local checks:
 pre-commit run --hook-stage manual
 ```
 
-Upload packages
+Generate `.devcontainer/devcontainer-lock.json`
 
 ```bash
-devcontainer features publish --namespace deepspacecartel/devcontainers-features src/
+devcontainer upgrade --workspace-folder ./
 ```
 
 Generate docs:
 
 ```bash
-devcontainer features generate-docs --namespace deepspacecartel/devcontainers-features --project-folder src/
+devcontainer features generate-docs --namespace partcad/devcontainers-features --project-folder src/
 ```
+
+Generate `GITHUB_TOKEN` at:
+
+* <https://github.com/settings/tokens/new>
+
+Upload packages
+
+```bash
+devcontainer features package src/
+devcontainer features publish --namespace partcad/devcontainers-features src/
+```
+
+### Initial Release
+
+* [Configuring visibility of packages for an organization](https://docs.github.com/en/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#configuring-visibility-of-packages-for-an-organization)
+
+Navigate to:
+
+* https://github.com/orgs/partcad/packages
+
+And from there go to "Package Settings" for each of:
+
+* https://github.com/orgs/partcad/packages/container/package/devcontainers-features
+* https://github.com/orgs/partcad/packages/container/package/devcontainers-features%2Fstarship
+* https://github.com/orgs/partcad/packages/container/package/devcontainers-features%2Fpip
+* https://github.com/orgs/partcad/packages/container/package/devcontainers-features%2Fapt
+
+In Organisation [Settings / Packages](https://github.com/organizations/partcad/settings/packages) check `Public` and then:
+
+* In "Manage Actions access" section add `devcontainers-features` repo with `Write` role.
+* In "Manage Codespaces access" section add `partcad` repo.
+* In "Danger Zone" use "Change visability" to set package visibility to "Public".
+* In "Inherited Access" check "Inherit access from source repository (recommended)".
 
 ## TODO
 
 * [ ] [Update collection-index.yml #453](https://github.com/devcontainers/devcontainers.github.io/pull/453).
 * [ ] Integrate `starship completions $(basename $SHELL)`.
 * [ ] Extract `bash-completion` installation into `utils` package.
+* [ ] Create a dedicated team and grant admin permissions to Container Packages.
+* [ ] Manage Packages permissions with Terraform.
+* [ ] `LABEL org.ope,ncontainers.image.source https://github.com/OWNER/REPO`
+  * [ ] Maybe `customizations` could be used for that but docs are not clear.
+* [ ] Drop `pip` feature and replace it with `devcontainers/python` instead.

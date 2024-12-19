@@ -1,0 +1,21 @@
+{
+    "remote.extensionKind": {
+        "GitHub.vscode-codeql": [
+            "ui"
+        ]
+    },
+    "editor.fontFamily": "'Hack Nerd Font Mono'",
+    "files.insertFinalNewline": true,
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "*/devcontainer-feature.json"
+            ],
+            "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
+        }
+    ],
+    "terminal.integrated.fontFamily": "'Hack Nerd Font Mono'",
+    "cSpell.words": [
+        "ncontainers"
+    ]
+}

@@ -12,176 +12,30 @@
                 "Codeium.codeium"
             ],
             "settings": {
-                "remote.extensionKind": {
-                    "GitHub.vscode-codeql": [
-                        "ui"
-                    ]
-                },
-                "tasks": {
-                    "version": "2.0.0",
-                    "tasks": [
-                        {
-                            "label": "Dev Container Feature: Publish Packages",
-                            "type": "shell",
-                            "command": "devcontainer",
-                            "args": [
-                                "features",
-                                "publish",
-                                "--namespace",
-                                "deepspacecartel/devcontainers-features",
-                                "src/"
-                            ],
-                            "group": {
-                                "kind": "build",
-                                "isDefault": false
-                            }
-                        },
-                        {
-                            "label": "Dev Container Feature: Generate Docs",
-                            "type": "shell",
-                            "command": "devcontainer",
-                            "args": [
-                                "features",
-                                "generate-docs",
-                                "--namespace",
-                                "deepspacecartel/devcontainers-features",
-                                "--project-folder",
-                                "src/"
-                            ],
-                            "group": {
-                                "kind": "build",
-                                "isDefault": false
-                            }
-                        },
-                        {
-                            "label": "pre-commit: manual",
-                            "type": "shell",
-                            "command": "pre-commit",
-                            "args": [
-                                "run",
-                                "--hook-stage",
-                                "manual"
-                            ],
-                            "group": {
-                                "kind": "test",
-                                "isDefault": false
-                            }
-                        },
-                        {
-                            "label": "Dev Container Feature: Test Everything",
-                            "type": "shell",
-                            "command": "devcontainer",
-                            "args": [
-                                "features",
-                                "test"
-                            ],
-                            "group": {
-                                "kind": "test",
-                                "isDefault": true
-                            }
-                        },
-                        {
-                            "label": "Dev Container Feature: Test Global Scenarios",
-                            "type": "shell",
-                            "command": "devcontainer",
-                            "args": [
-                                "features",
-                                "test",
-                                "--global-scenarios-only",
-                                "/workspaces/devcontainers-features"
-                            ],
-                            "group": {
-                                "kind": "test",
-                                "isDefault": false
-                            }
-                        },
-                        {
-                            "label": "Dev Container Feature: Test starship",
-                            "type": "shell",
-                            "command": "devcontainer",
-                            "args": [
-                                "features",
-                                "test",
-                                "--features",
-                                "starship",
-                                "--remote-user",
-                                "root",
-                                "--base-image",
-                                "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
-                                "/workspaces/devcontainers-features"
-                            ],
-                            "group": {
-                                "kind": "test",
-                                "isDefault": false
-                            }
-                        },
-                        {
-                            "label": "Dev Container Feature: Test apt",
-                            "type": "shell",
-                            "command": "devcontainer",
-                            "args": [
-                                "features",
-                                "test",
-                                "--features",
-                                "apt",
-                                "--remote-user",
-                                "root",
-                                "--base-image",
-                                "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
-                                "/workspaces/devcontainers-features"
-                            ],
-                            "group": {
-                                "kind": "test",
-                                "isDefault": false
-                            }
-                        },
-                        {
-                            "label": "Dev Container Feature: Test pip",
-                            "type": "shell",
-                            "command": "devcontainer",
-                            "args": [
-                                "features",
-                                "test",
-                                "--features",
-                                "pip",
-                                "--remote-user",
-                                "root",
-                                "--base-image",
-                                "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
-                                "/workspaces/devcontainers-features"
-                            ],
-                            "group": {
-                                "kind": "test",
-                                "isDefault": false
-                            }
-                        }
-                    ]
-                },
-                "dotfiles.repository": "deepspacecartel/dotfiles",
-                "editor.fontFamily": "'Hack Nerd Font Mono'",
-                "files.insertFinalNewline": true,
-                "json.schemas": [
-                    {
-                        "fileMatch": [
-                            "*/devcontainer-feature.json"
-                        ],
-                        "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
-                    }
-                ],
-                "terminal.integrated.fontFamily": "'Hack Nerd Font Mono'"
+                "dotfiles.repository": "partcad/dotfiles"
             }
         }
     },
+    "containerEnv": {
+        "PRE_COMMIT_HOME": "${containerWorkspaceFolder}/.pre-commit"
+    },
+    "postCreateCommand": {
+        "pre-commit": "pre-commit install"
+    },
     "features": {
-        // "ghcr.io/deepspacecartel/devcontainers-features/starship:1": {},
-        // "ghcr.io/deepspacecartel/devcontainers-features/pip:1": {
-        //     "packages": "pre-commit",
-        //     "location": "/opt/pip"
-        // },
-        // "ghcr.io/deepspacecartel/devcontainers-features/apt:1": {
-        //     "packages": "shellcheck shfmt mc python3-pip python3-venv"
-        // },
-        // "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+        "ghcr.io/devcontainers/features/python:1": {
+            "installTools": true,
+            "toolsToInstall": [
+                "pre-commit",
+                "poetry"
+            ],
+            "version": "latest"
+        },
+        "ghcr.io/partcad/devcontainers-features/starship:2": {},
+        "ghcr.io/partcad/devcontainers-features/apt:2": {
+            "packages": "shellcheck shfmt mc python3-pip python3-venv"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
     "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
     "remoteEnv": {
